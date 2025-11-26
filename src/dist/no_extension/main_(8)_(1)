@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 d83e64c5cd6ba64c37f51c4e774efe796f1ccdf7 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1761491557 +0200	commit (initial): first commit
+d83e64c5cd6ba64c37f51c4e774efe796f1ccdf7 d83e64c5cd6ba64c37f51c4e774efe796f1ccdf7 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1761491564 +0200	Branch: renamed refs/heads/master to refs/heads/main
+d83e64c5cd6ba64c37f51c4e774efe796f1ccdf7 1b60a5d12888d529e35a6ddca6f8343a2be32740 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1761738875 +0200	commit: maked class for managed user contact book
+1b60a5d12888d529e35a6ddca6f8343a2be32740 4d3a9996965b08a619b03439892494d2023a9b92 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1761845523 +0200	commit: added some updates
+4d3a9996965b08a619b03439892494d2023a9b92 b3af697dff69c0e2cac4c4b4337709f41c7fe174 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1762026166 +0200	commit: updated remove phone class

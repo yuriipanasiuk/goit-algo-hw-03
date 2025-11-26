@@ -6,6 +6,7 @@ from pathlib import Path
 
 def parse_arguments():
     """Parsing command line arguments."""
+
     parser = argparse.ArgumentParser(
         description="Recursively copies and sorts files by extension in a subdirectory."
     )
@@ -21,64 +22,44 @@ def parse_arguments():
 
 
 def get_extension(file_path: Path) -> str:
+    """Specifies the folder category (extension) of the file."""
+
     if file_path.name.startswith(".") and not file_path.suffix:
         return "hidden"
 
     return file_path.suffix.lstrip(".").lower() or "no_extension"
 
 
-def copy_file_to_destination(file_path: Path, dest_root: Path):
-    """
-    Copies a single file to the corresponding subdirectory by extension.
-    """
-    try:
-        ext = get_extension(file_path)
-        target_dir = dest_root / ext
-        target_dir.mkdir(parents=True, exist_ok=True)
+def sort_files_recursive(source_dir: Path, dest_root: Path):
+    """Recursively traverses a folder and copies files."""
 
-        destination_path = target_dir / file_path.name
+    for item in source_dir.iterdir():
 
-        if destination_path.exists():
-            stem = file_path.stem
-            suffix = file_path.suffix
-            counter = 1
-            while destination_path.exists():
-                new_name = f"{stem}_({counter}){suffix}"
-                destination_path = target_dir / new_name
-                counter += 1
+        if item.is_dir():
+            sort_files_recursive(item, dest_root)
 
-        shutil.copy2(file_path, destination_path)
-        print(f"Copied: {file_path} → {destination_path}")
+        elif item.is_file():
+            try:
+                ext_category = get_extension(item)
+                target_dir = dest_root / ext_category
+                target_dir.mkdir(parents=True, exist_ok=True)
+                destination_path = target_dir / item.name
 
-    except PermissionError as e:
-        print(f"Access error (PermissionError): {file_path} — {e}", file=sys.stderr)
-    except OSError as e:
-        print(f"File system error (OSError): {file_path} — {e}", file=sys.stderr)
-    except Exception as e:
-        print(f"Unknown error while copying {file_path}: {e}", file=sys.stderr)
+                if destination_path.exists():
+                    stem = item.stem
+                    suffix = item.suffix
+                    counter = 1
 
+                    while destination_path.exists():
+                        new_name = f"{stem}_({counter}){suffix}"
+                        destination_path = target_dir / new_name
+                        counter += 1
 
-def traverse_directory(source_path: Path, dest_root: Path):
-    """
-    Recursively traverses a directory and copies files.
-    """
-    if not source_path.exists():
-        print(f"Error: Source does not exist: {source_path}", file=sys.stderr)
-        return
-    if not source_path.is_dir():
-        print(f"Error: Source is not a directory: {source_path}", file=sys.stderr)
-        return
+                shutil.copy2(item, destination_path)
+                print(f"Copied: {item} -> {destination_path.relative_to(dest_root)}")
 
-    try:
-        for item in source_path.iterdir():
-            if item.is_dir():
-                traverse_directory(item, dest_root)
-            elif item.is_file():
-                copy_file_to_destination(item, dest_root)
-    except PermissionError as e:
-        print(f"No access to directory: {source_path} — {e}", file=sys.stderr)
-    except Exception as e:
-        print(f"Error while scanning directory {source_path}: {e}", file=sys.stderr)
+            except Exception as e:
+                print(f"Error processing {item}: {e}", file=sys.stderr)
 
 
 def main():
@@ -89,6 +70,7 @@ def main():
 
     try:
         dest_dir.mkdir(parents=True, exist_ok=True)
+
     except Exception as e:
         print(
             f"Failed to create destination directory {dest_dir}: {e}",
@@ -97,7 +79,7 @@ def main():
         sys.exit(1)
 
     print("We start copying and sorting files...\n")
-    traverse_directory(source_dir, dest_dir)
+    sort_files_recursive(source_dir, dest_dir)
     print("\nDone! Files sorted by extension.")
 
 

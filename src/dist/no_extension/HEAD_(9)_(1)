@@ -1,0 +1,9 @@
+0000000000000000000000000000000000000000 95b25b808ccbcb09cec8c56c9fbe77adab415094 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760559834 +0300	commit (initial): first commit
+95b25b808ccbcb09cec8c56c9fbe77adab415094 0000000000000000000000000000000000000000 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760559834 +0300	Branch: renamed refs/heads/main to refs/heads/main
+95b25b808ccbcb09cec8c56c9fbe77adab415094 95b25b808ccbcb09cec8c56c9fbe77adab415094 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760559834 +0300	Branch: renamed refs/heads/main to refs/heads/main
+95b25b808ccbcb09cec8c56c9fbe77adab415094 26bf3cbdf8b770272ffb6daad409669ffad7cc8c Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760561934 +0300	commit: implement task-2
+26bf3cbdf8b770272ffb6daad409669ffad7cc8c 84dbde28593537683443cb0a6cb246bbcc0ad222 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760564498 +0300	commit: refresh tast 2
+84dbde28593537683443cb0a6cb246bbcc0ad222 dbe07ff999bf45944faee68b665958786a5b5587 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760733211 +0300	commit: implement task-3
+dbe07ff999bf45944faee68b665958786a5b5587 a38a8b8a5c0080172ef158d6217fc572b00b86a9 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760815375 +0300	commit: implement task-4, updated structures
+a38a8b8a5c0080172ef158d6217fc572b00b86a9 70b31ff8753bb7eca12452824d04f1e100751126 Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760816002 +0300	commit: replace command
+70b31ff8753bb7eca12452824d04f1e100751126 a634b2aacf4a6f5749dae937bfc632a4a53ff39f Yurii Panasiuk <yuriipanasiuk@gmail.com> 1760939057 +0300	commit: added fix

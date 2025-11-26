@@ -1,0 +1,12 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Sensitive information
+.env
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
